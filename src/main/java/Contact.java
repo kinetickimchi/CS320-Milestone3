@@ -32,7 +32,7 @@ public class Contact {
             throw new IllegalArgumentException("lastName entry is not valid");
         }
 
-        if (phoneNumber == null || phoneNumber.length() != 10) {
+        if (phoneNumber == null || phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {  // regex to ensure only digits are valid
             throw new IllegalArgumentException("Phone number entry is not valid");
         }
 
