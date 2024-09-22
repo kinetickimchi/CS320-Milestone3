@@ -7,11 +7,14 @@
 // Unit tests for Contact.java
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ContactTest {
 
    @Test
+   @DisplayName("Test id entry")
    // Test for invalid ID (null or length > 10)
    public void testId() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -23,6 +26,7 @@ class ContactTest {
     }
 
     @Test
+    @DisplayName("Test firstName entry")
     // Test for invalid firstName (null or length > 10)
     public void testInvalidFirstName() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -34,6 +38,7 @@ class ContactTest {
     }
 
     @Test
+    @DisplayName("Test lastName entry")
     // Test for invalid lastName (null or length > 10)
     public void testInvalidLastName() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -45,6 +50,7 @@ class ContactTest {
     }
 
     @Test
+    @DisplayName("Test phoneNumber entry")
     // Test for invalid phoneNumber (null, length != 10, or includes non-digit characters)
     public void testInvalidPhoneNumber() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -59,6 +65,7 @@ class ContactTest {
     }
 
     @Test
+    @DisplayName("Test address entry")
     // Test for invalid address (null or length > 30)
     public void testInvalidAddress() {
         assertThrows(IllegalArgumentException.class, () -> {
