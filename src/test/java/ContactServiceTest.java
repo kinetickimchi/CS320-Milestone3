@@ -47,6 +47,7 @@ class ContactServiceTest {
         assertFalse(contactService.deleteContact("fakeID"));
     }
 
+    /*
     @Test
     @DisplayName("Test updateContact")
     // Test for updating contact fields
@@ -64,5 +65,47 @@ class ContactServiceTest {
         assertEquals("0987654321", updatedContact.getPhoneNumber());
         assertEquals("234 Main Street", updatedContact.getAddress());
 
+    }
+
+     */
+
+    @Test
+    @DisplayName("Test updateContactFirstName")
+    public void testUpdateContactFirstName() {
+        Contact contact = new Contact("12345678", "Lebron", "James", "1234567890", "123 Main Street");
+        contactService.addContact(contact);  // Add the contact object
+
+        assertTrue(contactService.updateContactFirstName("12345678", "Kevin"));
+        assertEquals("Kevin", contactService.list.get(0).getFirstName());
+    }
+
+    @Test
+    @DisplayName("Test updateContactLastName")
+    public void testUpdateContactLastName() {
+        Contact contact = new Contact("12345678", "Lebron", "James", "1234567890", "123 Main Street");
+        contactService.addContact(contact);  // Add the contact object
+
+        assertTrue(contactService.updateContactLastName("12345678", "Durant"));
+        assertEquals("Durant", contactService.list.get(0).getLastName());
+    }
+
+    @Test
+    @DisplayName("Test updateContactPhoneNumber")
+    public void testUpdateContactPhoneNumber() {
+        Contact contact = new Contact("12345678", "Lebron", "James", "1234567890", "123 Main Street");
+        contactService.addContact(contact);  // Add the contact object
+
+        assertTrue(contactService.updateContactPhoneNumber("12345678", "0987654321"));
+        assertEquals("0987654321", contactService.list.get(0).getPhoneNumber());
+    }
+
+    @Test
+    @DisplayName("Test updateContactAddress")
+    public void testUpdateContactAddress() {
+        Contact contact = new Contact("12345678", "Lebron", "James", "1234567890", "123 Main Street");
+        contactService.addContact(contact);  // Add the contact object
+
+        assertTrue(contactService.updateContactAddress("12345678", "234 Main Street"));
+        assertEquals("234 Main Street", contactService.list.get(0).getAddress());
     }
 }
